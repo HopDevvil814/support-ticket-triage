@@ -100,32 +100,49 @@ result.
 
 ## Sample eval output
 
+This is a real run against the Claude API (not mock mode) over the 25-ticket set:
+
 ```
 ================================================================
 TRIAGE CLASSIFIER — QA REPORT
+(freshly classified)
 ================================================================
 Tickets evaluated:        25
-Category accuracy:        80.0%
-Urgency exact-match acc:  28.0%
+Category accuracy:        96.0%
+Urgency exact-match acc:  68.0%
 
 Per-category (support = # true examples in the eval set):
   Category             Support   Precision    Recall
-  Billing                    6         55%      100%
+  Billing                    6        100%      100%
   Bug Report                 7        100%      100%
-  Product Question           6        100%       50%
-  Account/Onboarding         3        100%       33%
+  Product Question           6         86%      100%
+  Account/Onboarding         3        100%       67%
   Feature Request            3        100%      100%
 
-Misclassified tickets:    5
-  caught by human-review safety net: 5 (100%)
-  SILENT failures (wrong + auto-routed): 0
+Misclassified tickets:    1
+  caught by human-review safety net: 0 (0%)
+  SILENT failures (wrong + auto-routed): 1
+
+  ⚠ These would have gone out the door unsupervised and wrong:
+    [T-1008] "Where do I add a new team member?" — true=Account/Onboarding, predicted=Product Question, route=self_serve
 ================================================================
 ```
 
-(^ that run is from mock mode, which is deliberately weak — the honest
-number worth watching is the **silent failure count**, not raw accuracy.
-With the real classifier this both goes up in accuracy and gets more
-interesting to tune the confidence threshold against.)
+96% category accuracy is the headline number, but the one miss is the more
+useful finding. "Where do I add a new team member?" read like a generic
+how-do-I question to the model, so it classified it as a Product Question
+with high confidence and the routing policy sent it to self-serve — no
+human ever saw it. The true category was Account/Onboarding, which my
+policy deliberately keeps human-in-the-loop (account/access changes
+shouldn't be fully automated). The *classifier* wasn't unreasonable here;
+the *policy* has a gap: a high-confidence Product Question about adding
+users is close enough to an account-access question that it probably
+shouldn't auto-route. That's exactly the kind of finding `eval.py` exists
+to surface — not "the model is 96% accurate," but "here's the specific
+ticket shape that needs a second guardrail before I'd trust this in
+production." Two fixes worth trying: add a keyword check for
+account/seat/user-management language that forces human_agent regardless
+of category, or just raise the self_serve confidence bar above 85%.
 
 ## How this maps to the role
 
@@ -139,6 +156,10 @@ interesting to tune the confidence threshold against.)
 
 ## What I'd build next
 
+- Patch the silent failure above: route account/seat/user-management
+  language to a human regardless of category, or raise the self-serve
+  confidence bar past 85%. Then re-run `eval.py` to confirm it's actually
+  fixed rather than just assuming it.
 - Swap the synthetic dataset for a small set of real (de-identified) tickets
   and re-tune the confidence threshold against them.
 - Track routing decisions over time to see category drift, the way a real
