@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Sample queue{% endblock %}
+{% block content %}
+
+  <section class="intro">
+    <h1>Sample support queue</h1>
+    <p class="lede">
+      {{ total }} synthetic tickets, styled after what a nonprofit grant-tracking
+      SaaS support inbox actually looks like, run through the triage pipeline.
+      <a href="{{ url_for('queue') }}?refresh=1">Re-run classification</a>
+    </p>
+  </section>
+
+  <section class="stat-row">
+    <div class="stat-tile">
+      <span class="stat-value">{{ total }}</span>
+      <span class="stat-label">Tickets in queue</span>
+    </div>
+    <div class="stat-tile">
+      <span class="stat-value">{{ auto_pct }}%</span>
+      <span class="stat-label">Handled without a human</span>
+    </div>
+    <div class="stat-tile">
+      <span class="stat-value">{{ needs_review }}</span>
+      <span class="stat-label">Flagged for human review</span>
+    </div>
+    <div class="stat-tile">
+      <span class="stat-value">{{ by_category | length }}</span>
+      <span class="stat-label">Categories represented</span>
+    </div>
+  </section>
+
+  <div class="table-wrap">
+    <table class="queue-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Subject</th>
+          <th>Category</th>
+          <th>Urgency</th>
+          <th>Confidence</th>
+          <th>Route</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in results %}
+        <tr>
+          <td class="mono">{{ r.ticket_id }}</td>
+          <td>{{ r.subject }}</td>
+          <td>{{ r.category }}</td>
+          <td>{{ r.urgency }}</td>
+          <td class="mono">{{ (r.confidence * 100) | round | int }}%</td>
+          <td>
+            <span class="status-badge status-{{ r.route_status }} small">
+              <span class="status-dot" aria-hidden="true"></span>
+              {{ r.route_label }}
+            </span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="footnote">
+    Route colors: <span class="status-badge status-good small"><span class="status-dot"></span>self-serve / AI auto-reply</span>
+    <span class="status-badge status-warning small"><span class="status-dot"></span>human agent</span>
+    <span class="status-badge status-serious small"><span class="status-dot"></span>escalate to engineering</span>
+    <span class="status-badge status-critical small"><span class="status-dot"></span>escalate to finance</span>
+  </p>
+
+{% endblock %}

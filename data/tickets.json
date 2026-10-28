@@ -1,0 +1,177 @@
+[
+  {
+    "id": "T-1001",
+    "subject": "Charged twice for our annual plan",
+    "body": "Hi, I just noticed two charges of $1,188 on our nonprofit's card this week, both labeled Instrumentl Annual Plan. We only meant to renew once. Can someone refund the duplicate? Our bookkeeper is asking about it and we're a small org so this really matters to our budget.",
+    "true_category": "Billing",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1002",
+    "subject": "CSV import keeps failing at row 40",
+    "body": "I'm trying to bulk-import our list of past funders using the CSV template but it fails every time around row 40 with 'invalid date format.' I've checked the dates and they look fine to me (MM/DD/YYYY like the template says). Attached the file. This is blocking our board report due Friday.",
+    "true_category": "Bug Report",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1003",
+    "subject": "How does the grant match score work?",
+    "body": "New to Instrumentl and loving it so far! Quick question - when I see a match score of 82% next to a grant, what factors go into that number? Trying to understand whether to prioritize high-match grants over ones I find manually.",
+    "true_category": "Product Question",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1004",
+    "subject": "Can't log in - password reset email never arrives",
+    "body": "I've requested a password reset 4 times in the last hour and nothing shows up, not even in spam. I have a grant deadline tracked in the app that's due tomorrow and I can't get in to check the requirements. Please help ASAP.",
+    "true_category": "Account/Onboarding",
+    "true_urgency": "Urgent"
+  },
+  {
+    "id": "T-1005",
+    "subject": "Feature request: shared calendar view for the whole team",
+    "body": "Would love a shared calendar view that shows every grant deadline across our team of 6, not just the ones I'm tracking individually. Right now everyone has to check their own dashboard separately which means things fall through the cracks. Not urgent, just wanted to put it on your radar.",
+    "true_category": "Feature Request",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1006",
+    "subject": "Downgrade from Team to Individual plan",
+    "body": "We lost a grant writer last month and no longer need the Team plan seats. How do we downgrade to the Individual plan, and will we get a prorated credit for the rest of this billing cycle?",
+    "true_category": "Billing",
+    "true_urgency": "Medium"
+  },
+  {
+    "id": "T-1007",
+    "subject": "Saved searches disappeared overnight",
+    "body": "All 12 of my saved grant searches were there yesterday afternoon and this morning the list is completely empty. I didn't delete anything. This is the main way I track opportunities for 3 different program areas, so losing them is a real problem.",
+    "true_category": "Bug Report",
+    "true_urgency": "Urgent"
+  },
+  {
+    "id": "T-1008",
+    "subject": "Where do I add a new team member?",
+    "body": "Hi! We just hired a grants coordinator and want to add her to our Instrumentl account. I looked under Settings but couldn't find an 'invite user' option. Are we on the right plan for that?",
+    "true_category": "Account/Onboarding",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1009",
+    "subject": "Refund request - canceling within trial period",
+    "body": "We started a trial two weeks ago and decided Instrumentl isn't the right fit for our small food pantry's budget right now. I see we were charged $99 today. Can this be refunded since we're canceling during what I thought was still our trial window?",
+    "true_category": "Billing",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1010",
+    "subject": "Grant deadline showing wrong date",
+    "body": "The USDA Community Facilities grant in our tracker shows a deadline of 11/15 but the funder's own website says 10/15. Not sure if this is a typo on your end or if the funder pushed the date. Wanted to flag it since other users might be relying on the wrong date too.",
+    "true_category": "Bug Report",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1011",
+    "subject": "Does Instrumentl integrate with Salesforce?",
+    "body": "We use Salesforce Nonprofit Success Pack for our donor and grant records. Before we commit to a subscription, I want to know if there's a native integration or at least an export format that plays nicely with Salesforce imports.",
+    "true_category": "Product Question",
+    "true_urgency": "Medium"
+  },
+  {
+    "id": "T-1012",
+    "subject": "App is extremely slow loading the dashboard",
+    "body": "For the past 3 days the main dashboard takes 20-30 seconds to load, sometimes timing out completely. Happens on both Chrome and Safari. Our whole team has been complaining about it. Is this a known issue?",
+    "true_category": "Bug Report",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1013",
+    "subject": "Question about the LOI tracking feature",
+    "body": "I noticed there's a field for 'Letter of Inquiry status' on some grant records but not others. Is this feature only available for certain grant types, or do I need to enable it somewhere?",
+    "true_category": "Product Question",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1014",
+    "subject": "Need an invoice for our finance department, not a receipt",
+    "body": "Our finance team needs a formal invoice with our nonprofit's EIN and billing address on it for our records, not just the receipt email that gets sent automatically. Can you send one over or point me to where I can generate it?",
+    "true_category": "Billing",
+    "true_urgency": "Medium"
+  },
+  {
+    "id": "T-1015",
+    "subject": "Cancel my subscription effective immediately",
+    "body": "Please cancel our Instrumentl subscription right away. Our funding situation changed and we can no longer justify the cost. I know this means losing access to the platform but that's fine, just needs to happen before the next billing date which I believe is in 5 days.",
+    "true_category": "Billing",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1016",
+    "subject": "Suggestion: dark mode",
+    "body": "Not a big deal but a lot of us on the team work late nights before deadlines and a dark mode option would be easier on the eyes. Just a nice-to-have, no rush at all.",
+    "true_category": "Feature Request",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1017",
+    "subject": "Getting a 500 error when I try to export my grant list",
+    "body": "Every time I click 'Export to CSV' on my tracked grants page, I get a white screen that says 'Server Error (500)'. I need this export for a meeting with my ED in an hour. Please advise.",
+    "true_category": "Bug Report",
+    "true_urgency": "Urgent"
+  },
+  {
+    "id": "T-1018",
+    "subject": "How do I filter grants by geographic eligibility?",
+    "body": "We're a regional food bank and only eligible for grants serving our specific counties in Ohio. Is there a way to filter search results by geographic restriction, or do I have to check each grant's eligibility manually?",
+    "true_category": "Product Question",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1019",
+    "subject": "Billed after we already canceled last month",
+    "body": "We canceled our subscription on the 3rd of last month and got a confirmation email. We were just charged again yesterday for the full annual amount. This needs to be fixed and refunded, this is a significant amount of money for our organization.",
+    "true_category": "Billing",
+    "true_urgency": "Urgent"
+  },
+  {
+    "id": "T-1020",
+    "subject": "Onboarding call scheduling",
+    "body": "We signed up yesterday and I see there's supposed to be an onboarding call included with our plan. How do I get that scheduled? Want to make sure our team gets off to a good start with the tool.",
+    "true_category": "Account/Onboarding",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1021",
+    "subject": "Two users, one login - is that allowed?",
+    "body": "Quick question before we upgrade - can two people share a single login, or does everyone on the team need their own paid seat? Trying to figure out the most cost-effective setup for our tiny 2-person team.",
+    "true_category": "Product Question",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1022",
+    "subject": "Notes I added to a grant record vanished",
+    "body": "I wrote detailed notes on our strategy for the Kellogg Foundation grant last week, came back today and the notes field is completely blank. This is the second time this has happened with different grants. Something seems broken with the notes saving.",
+    "true_category": "Bug Report",
+    "true_urgency": "High"
+  },
+  {
+    "id": "T-1023",
+    "subject": "Request: bulk tagging for grant records",
+    "body": "We track around 150 active grants and it would save us a ton of time if we could select multiple grants at once and apply a tag (like 'Q1 priority') instead of tagging one at a time. Would really help our workflow.",
+    "true_category": "Feature Request",
+    "true_urgency": "Medium"
+  },
+  {
+    "id": "T-1024",
+    "subject": "Difference between Individual and Team plans?",
+    "body": "Can someone lay out exactly what's different between the Individual and Team plans besides the number of seats? Trying to decide which makes sense as we're about to bring on a second grant writer.",
+    "true_category": "Product Question",
+    "true_urgency": "Low"
+  },
+  {
+    "id": "T-1025",
+    "subject": "Site completely down for our whole team",
+    "body": "Nobody on our team can access Instrumentl right now, getting a 'This site can't be reached' error. Just started about 15 minutes ago. Is this a known outage? We have a proposal deadline today and really need access.",
+    "true_category": "Bug Report",
+    "true_urgency": "Urgent"
+  }
+]

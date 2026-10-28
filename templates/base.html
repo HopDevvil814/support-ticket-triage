@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Support Triage{% endblock %} — Ticket Triage Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ url_for('index') }}">
+        <span class="brand-mark" aria-hidden="true">◆</span>
+        Support Ticket Triage
+      </a>
+      <nav class="nav">
+        <a href="{{ url_for('index') }}" class="{{ 'active' if request.path == '/' else '' }}">Try a ticket</a>
+        <a href="{{ url_for('queue') }}" class="{{ 'active' if request.path == '/queue' else '' }}">Sample queue</a>
+      </nav>
+    </div>
+  </header>
+
+  {% if mock_mode %}
+  <div class="mock-banner">
+    <div class="wrap">
+      <strong>Mock mode:</strong> no <code>ANTHROPIC_API_KEY</code> is set, so classifications
+      are coming from a simple keyword heuristic, not Claude. Add a key to your <code>.env</code>
+      file to see the real classifier. See the README for setup.
+    </div>
+  </div>
+  {% endif %}
+
+  <main class="wrap main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      Built as a portfolio project exploring AI-assisted support triage —
+      see <code>README.md</code> for the design writeup.
+    </div>
+  </footer>
+</body>
+</html>

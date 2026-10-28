@@ -1,0 +1,40 @@
+<section class="result-card" aria-live="polite">
+  <div class="result-header">
+    <h2>Triage result</h2>
+    <span class="status-badge status-{{ result.route_status }}">
+      <span class="status-dot" aria-hidden="true"></span>
+      {{ result.route_label }}
+    </span>
+  </div>
+
+  <dl class="result-grid">
+    <div>
+      <dt>Category</dt>
+      <dd>{{ result.category }}</dd>
+    </div>
+    <div>
+      <dt>Urgency</dt>
+      <dd>{{ result.urgency }}</dd>
+    </div>
+    <div>
+      <dt>Confidence</dt>
+      <dd>{{ (result.confidence * 100) | round | int }}%</dd>
+    </div>
+    <div>
+      <dt>Needs human review?</dt>
+      <dd>{{ "Yes" if result.needs_human_review else "No" }}</dd>
+    </div>
+  </dl>
+
+  <p class="result-reasoning"><strong>Why:</strong> {{ result.reasoning }}</p>
+  <p class="result-reasoning"><strong>Routing:</strong> {{ result.routing_reason }}</p>
+
+  {% if result.suggested_reply %}
+  <div class="suggested-reply">
+    <h3>Suggested reply draft</h3>
+    <p>{{ result.suggested_reply }}</p>
+  </div>
+  {% endif %}
+
+  <p class="result-source">Classified by: {{ "Claude" if result.source == "llm" else ("heuristic mock" if result.source == "mock" else "parse-error fallback") }}</p>
+</section>

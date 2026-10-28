@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Try a ticket{% endblock %}
+{% block content %}
+
+  <section class="intro">
+    <h1>Paste in a support ticket</h1>
+    <p class="lede">
+      This runs the same two-step pipeline as the sample queue: an LLM classifies the
+      ticket (category, urgency, confidence, a draft reply), then a separate routing
+      policy decides whether it can be handled automatically or needs a human — and if
+      so, which one.
+    </p>
+  </section>
+
+  <form method="post" class="ticket-form">
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" value="{{ subject }}"
+           placeholder="e.g. Charged twice for our annual plan" required>
+
+    <label for="body">Body</label>
+    <textarea id="body" name="body" rows="6"
+              placeholder="Paste the full ticket text here..." required>{{ body }}</textarea>
+
+    <button type="submit">Triage this ticket</button>
+  </form>
+
+  {% if error %}
+    <p class="form-error">{{ error }}</p>
+  {% endif %}
+
+  {% if result %}
+    {% include "_result_card.html" %}
+  {% endif %}
+
+  <section class="try-examples">
+    <h2>Don't have a ticket handy?</h2>
+    <p>Try one of these — copy into the fields above:</p>
+    <ul>
+      <li>Subject: <em>"App is extremely slow loading the dashboard"</em> — Body: <em>"For the past 3 days the main dashboard takes 20-30 seconds to load, sometimes timing out. Happens on Chrome and Safari. Is this a known issue?"</em></li>
+      <li>Subject: <em>"Can I get an invoice instead of a receipt?"</em> — Body: <em>"Our finance team needs a formal invoice with our EIN on it for their records, not just the automatic receipt email."</em></li>
+    </ul>
+  </section>
+
+{% endblock %}
